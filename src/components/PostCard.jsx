@@ -10,7 +10,8 @@ export default function PostCard({
   shares = 29,
 }) {
   return (
-    <div className="bg-neutral-800 p-6 rounded-2xl shadow-lg space-y-4 max-w-2xl w-full">
+    <div className="bg-neutral-800 p-8 rounded-2xl shadow-lg space-y-6 max-w-4xl w-full min-h-[380px]">
+      {/* Header: Avatar, Username, Time, More Options */}
       <div className="flex items-start justify-between">
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 bg-neutral-700 rounded-full flex items-center justify-center">
@@ -29,16 +30,18 @@ export default function PostCard({
         </div>
         <MoreHorizontal size={24} className="text-gray-400 cursor-pointer" />
       </div>
+      {/* Body: Image and Caption */}
       <div className="flex flex-row gap-6">
         <img
           src={imageUrl}
           alt="post"
-          className="w-64 h-40 object-cover rounded-xl flex-shrink-0"
+          className="w-156 h-96 object-cover rounded-xl flex-shrink-0" // Increased width and height
         />
         <p className="text-gray-300 text-base leading-relaxed self-start">
           {caption}
         </p>
       </div>
+      {/* Footer: Likes, Comments, Shares, Repost Button */}
       <div className="flex items-center justify-between mt-2">
         <div className="flex space-x-8 items-center text-gray-400">
           <span className="flex items-center space-x-2">
