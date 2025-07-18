@@ -1,4 +1,4 @@
-import { Flame, User, Users, MessageCircle, Plus, LogOut } from "lucide-react";
+import { Flame, Compass, Users, MessageCircle, CirclePlus, LogOut } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
@@ -8,13 +8,13 @@ export default function Sidebar() {
         <h2 className="text-5xl font-regular font-irishgrover pl-4">Rizz</h2> {/* Title with Irish Grover font */}
         <nav className="flex flex-col gap-4 pl-2">
           <NavLink to="/home" className="flex gap-3 items-center"><Flame size={18}/> Trending</NavLink>
-          <NavLink to="/profile" className="flex gap-3 items-center"><User size={18}/> Profile</NavLink>
+          <NavLink to="/profile" className="flex gap-3 items-center"><Compass size={18}/>Explore</NavLink>
           <NavLink to="/friends" className="flex gap-3 items-center"><Users size={18}/> Friends</NavLink>
           <NavLink to="/messages" className="flex gap-3 items-center"><MessageCircle size={18}/> Messages</NavLink>
-          <NavLink to="/create" className="flex gap-3 items-center"><Plus size={18}/> Create</NavLink>
+          <NavLink to="/create" className="flex gap-3 items-center"><CirclePlus size={18}/> Create</NavLink>
         </nav>
       </div>
-      <NavLink to="/login"  className="flex gap-3 items-center text-red-500 pl-2"><LogOut size={18}/> Logout</NavLink> {/* Logout link */}
+      <NavLink to="/login"  className="flex gap-3 items-center text-zinc-400 pl-2"><LogOut size={18}/> Logout</NavLink> {/* Logout link */}  
     </div>
   );
 }
