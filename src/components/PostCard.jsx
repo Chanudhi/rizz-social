@@ -35,8 +35,7 @@ export default function PostCard({
         <img
           src={imageUrl}
           alt="post"
-          className="w-156 h-96 object-cover rounded-xl flex-shrink-0" // Increased width and height
-        />
+          className="w-156 h-96 object-cover rounded-xl flex-shrink-0" /> {/*Increase width and height of the image*/}
         <p className="text-gray-300 text-base leading-relaxed self-start">
           {caption}
         </p>
@@ -57,7 +56,7 @@ export default function PostCard({
             <span className="text-base">{shares}</span>
           </span>
           <span>
-            <TurnedInIcon size={22} className="cursor-pointer hover:text-yellow-500" />
+            <TurnedInIcon className="cursor-pointer hover:text-yellow-500 w-6 h-4" />
           </span>
         </div>
         <button className="bg-neutral-700 hover:bg-neutral-600 text-gray-200 px-8 py-2 rounded-full font-medium transition">
