@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen bg-black text-white">
       <Sidebar />
-      <div className="flex-1 p-8 space-y-8 overflow-y-auto">
+      <div className="ml-60 flex-1 p-8 space-y-8 overflow-y-auto">
         <PostCard />
         <PostCard />
       </div>
