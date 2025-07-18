@@ -10,9 +10,9 @@ import PostEditDelete from "./pages/PostEditDelete";
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/home" element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/friends" element={<Friends />} />
       <Route path="/create" element={<CreatePost />} />

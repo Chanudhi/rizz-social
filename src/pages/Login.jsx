@@ -1,6 +1,6 @@
 import InputField from "../components/InputField";
 import Button from "../components/Button";
-import loginImg from "../assets/images/login.jpg";
+import loginImg from "../assets/images/login.png";
 import { Link } from "react-router-dom";
 
 export default function Login() {
