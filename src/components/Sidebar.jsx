@@ -1,4 +1,4 @@
-import { Flame, Compass, Users, MessageCircle, CirclePlus, LogOut } from "lucide-react";
+import { Flame, Compass, Users, Mail, CirclePlus, LogOut } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
@@ -10,7 +10,7 @@ export default function Sidebar() {
           <NavLink to="/home" className="flex gap-3 items-center"><Flame size={18}/> Trending</NavLink>
           <NavLink to="/profile" className="flex gap-3 items-center"><Compass size={18}/>Explore</NavLink>
           <NavLink to="/friends" className="flex gap-3 items-center"><Users size={18}/> Friends</NavLink>
-          <NavLink to="/messages" className="flex gap-3 items-center"><MessageCircle size={18}/> Messages</NavLink>
+          <NavLink to="/messages" className="flex gap-3 items-center"><Mail size={18}/> Messages</NavLink>
           <NavLink to="/create" className="flex gap-3 items-center"><CirclePlus size={18}/> Create</NavLink>
         </nav>
       </div>

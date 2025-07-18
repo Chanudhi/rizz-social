@@ -1,5 +1,5 @@
-import { Heart, MessageCircle, Share2, Save, MoreHorizontal } from "lucide-react";
-
+import { Heart, MessageCircle, Send, MoreHorizontal } from "lucide-react";
+import TurnedInIcon from '@mui/icons-material/TurnedIn';
 export default function PostCard({
   username = "Anne",
   time = "3 days ago",
@@ -50,11 +50,11 @@ export default function PostCard({
             <span className="text-base">{comments}</span>
           </span>
           <span className="flex items-center space-x-2">
-            <Share2 size={22} className="cursor-pointer hover:text-green-500" />
+            <Send size={22} className="cursor-pointer hover:text-green-500" />
             <span className="text-base">{shares}</span>
           </span>
           <span>
-            <Save size={22} className="cursor-pointer hover:text-yellow-500" />
+            <TurnedInIcon size={22} className="cursor-pointer hover:text-yellow-500" />
           </span>
         </div>
         <button className="bg-neutral-700 hover:bg-neutral-600 text-gray-200 px-8 py-2 rounded-full font-medium transition">
