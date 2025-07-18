@@ -5,18 +5,36 @@ import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
-    <div className="min-h-screen bg-black text-white flex">
-      <div className="w-1/2 flex flex-col justify-center items-center px-16">
-        <h1 className="text-3xl mb-4 font-semibold">Login to Rizz</h1>
-        <InputField placeholder="Username" />
-        <InputField type="password" placeholder="Password" />
-        <Button className="w-full mt-2">Login</Button>
-        <p className="text-sm mt-4 text-gray-400">
-          Don't have an account? <Link to="/register" className="underline text-white">Register</Link>
-        </p>
+    <div className="min-h-screen w-full bg-black text-white flex">
+      {/* Left: Login Form */}
+      <div className="flex flex-col justify-center items-center w-1/2 px-16">
+        <h1 className="text-3xl mb-8 font-semibold text-center">
+          Login to <span className="font-irishgrover text-4xl">Rizz</span>
+        </h1>
+        <div className="w-full max-w-[340px] space-y-4">
+          <InputField placeholder="Username" />
+          <InputField type="password" placeholder="Password" />
+          <Button>Login</Button>
+
+          <p className="text-xs mt-8 text-gray-400 text-center font-light">
+            Don't have an account?{" "}
+            <Link
+              to="/register"
+              className="text-blue-400 hover:text-blue-300 transition"
+            >
+              Sign up
+            </Link>
+          </p>
+        </div>
       </div>
-      <div className="w-1/2">
-        <img src={loginImg} alt="Login" className="w-full h-full object-cover" />
+
+      {/* Right: Image */}
+      <div className="flex items-center justify-center w-1/2 bg-black">
+        <img
+          src={loginImg}
+          alt="Login"
+          className="w-[500px] h-[700px] object-cover rounded-2xl shadow-lg"
+        />
       </div>
     </div>
   );

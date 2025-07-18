@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-black text-white pt-20 ">
+    <div className="flex flex-col min-h-screen bg-black text-white pt-24 ">
       <Navbar />
       <div className="flex flex-1">
         <Sidebar />
