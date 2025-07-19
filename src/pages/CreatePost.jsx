@@ -8,12 +8,12 @@ import { ImageIcon, MoreHorizontal, X } from "lucide-react";
 export default function CreatePost() {
   const [caption, setCaption] = useState("");
   const [fileName, setFileName] = useState("");
-  const [selectedFile, setSelectedFile] = useState(null); // Added: Store actual file object
-  const [isLoading, setIsLoading] = useState(false); // Added: Loading state for post submission
-  const [error, setError] = useState(""); // Added: Error handling state
+  const [selectedFile, setSelectedFile] = useState(null); //  Store actual file object
+  const [isLoading, setIsLoading] = useState(false); // Loading state for post submission
+  const [error, setError] = useState(""); // Error handling state
   const navigate = useNavigate();
 
-  // FIXED: Enhanced post submission with proper validation and error handling
+  // Enhanced post submission with proper validation and error handling
   const handlePost = async () => {
     // Reset error state
     setError("");
@@ -27,19 +27,19 @@ export default function CreatePost() {
     setIsLoading(true);
     
     try {
-      // TODO: Replace with actual API call when backend is ready
-      // const formData = new FormData();
-      // formData.append('caption', caption.trim());
-      // if (selectedFile) {
-      //   formData.append('image', selectedFile);
-      // }
-      // const response = await fetch('/api/posts', {
-      //   method: 'POST',
-      //   body: formData,
-      //   headers: {
-      //     'Authorization': `Bearer ${localStorage.getItem('token')}`
-      //   }
-      // });
+      
+      const formData = new FormData();
+      formData.append('caption', caption.trim());
+      if (selectedFile) {
+        formData.append('image', selectedFile);
+      }
+      const response = await fetch('/api/posts', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
       
       // Simulate API call for now
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -61,7 +61,7 @@ export default function CreatePost() {
     }
   };
 
-  // FIXED: Enhanced file handling with proper validation
+  // Enhanced file handling with proper validation
   const handleFileChange = (e) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -83,7 +83,7 @@ export default function CreatePost() {
     }
   };
 
-  // ADDED: Function to remove selected file
+  // Function to remove selected file
   const removeSelectedFile = () => {
     setSelectedFile(null);
     setFileName("");
@@ -120,7 +120,7 @@ export default function CreatePost() {
                 <MoreHorizontal size={24} className="text-gray-400 cursor-pointer" />
               </div>
               
-              {/* ADDED: Error display */}
+              {/*Error display */}
               {error && (
                 <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3 text-red-400 text-sm">
                   {error}
@@ -138,7 +138,7 @@ export default function CreatePost() {
                   maxLength={500} // Added: Character limit
                 />
                 
-                {/* ADDED: Character counter */}
+                {/* Character counter */}
                 <div className="text-right text-sm text-gray-400">
                   {caption.length}/500
                 </div>
@@ -158,7 +158,7 @@ export default function CreatePost() {
                   />
                 </div>
                 
-                {/* ENHANCED: Show selected file with remove option */}
+                {/* Show selected file with remove option */}
                 {fileName && (
                   <div className="flex items-center justify-between bg-neutral-700 p-3 rounded-lg">
                     <div className="text-sm text-gray-400">
@@ -175,7 +175,7 @@ export default function CreatePost() {
                   </div>
                 )}
                 
-                {/* ENHANCED: Post Button with loading state */}
+                {/* Post Button with loading state */}
                 <Button 
                   className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed"
                   onClick={handlePost}

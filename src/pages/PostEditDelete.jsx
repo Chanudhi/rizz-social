@@ -11,7 +11,7 @@ export default function PostEditDelete() {
   
   // State Management
   const [user, setUser] = useState({
-    id: 1, // TODO: Get from auth context or props
+    id: 1, // Get from auth context or props
     name: "Anne",
     username: "@anne",
     avatar: "A"
@@ -28,7 +28,7 @@ export default function PostEditDelete() {
       createdAt: "3 days ago",
       userId: 1
     }
-    // TODO: Replace with actual API data
+    //Replace with actual API data
   ]);
   
   const [editingPost, setEditingPost] = useState(null);
@@ -53,33 +53,33 @@ export default function PostEditDelete() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [postToDelete, setPostToDelete] = useState(null);
 
-  // TODO: Fetch user posts on component mount
+  //  Fetch user posts on component mount
   useEffect(() => {
     fetchUserPosts();
   }, []);
 
   /**
    * Fetch user's posts from backend
-   * TODO: Replace with actual API call
+   * Replace with actual API call
    */
   const fetchUserPosts = async () => {
     setLoading(prev => ({ ...prev, posts: true }));
     setErrors(prev => ({ ...prev, general: "" }));
     
     try {
-      // TODO: Replace with actual API call
-      // const response = await fetch(`/api/users/${user.id}/posts`, {
-      //   headers: {
-      //     'Authorization': `Bearer ${localStorage.getItem('token')}`
-      //   }
-      // });
-      // 
-      // if (!response.ok) {
-      //   throw new Error('Failed to fetch posts');
-      // }
-      // 
-      // const data = await response.json();
-      // setPosts(data.posts);
+       
+      const response = await fetch(`/api/users/${user.id}/posts`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch posts');
+      }
+      
+      const data = await response.json();
+      setPosts(data.posts);
       
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -211,26 +211,26 @@ export default function PostEditDelete() {
     setErrors(prev => ({ ...prev, edit: "" }));
     
     try {
-      // TODO: Replace with actual API call
-      // const formData = new FormData();
-      // formData.append('caption', editFormData.caption.trim());
-      // if (editFormData.selectedFile) {
-      //   formData.append('image', editFormData.selectedFile);
-      // }
-      // 
-      // const response = await fetch(`/api/posts/${editingPost}`, {
-      //   method: 'PUT',
-      //   body: formData,
-      //   headers: {
-      //     'Authorization': `Bearer ${localStorage.getItem('token')}`
-      //   }
-      // });
-      // 
-      // if (!response.ok) {
-      //   throw new Error('Failed to update post');
-      // }
-      // 
-      // const updatedPost = await response.json();
+     //Replace with actual API call
+      const formData = new FormData();
+      formData.append('caption', editFormData.caption.trim());
+      if (editFormData.selectedFile) {
+        formData.append('image', editFormData.selectedFile);
+      }
+      
+      const response = await fetch(`/api/posts/${editingPost}`, {
+        method: 'PUT',
+        body: formData,
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to update post');
+      }
+      
+      const updatedPost = await response.json();
       
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -283,17 +283,17 @@ export default function PostEditDelete() {
     setErrors(prev => ({ ...prev, delete: "" }));
     
     try {
-      // TODO: Replace with actual API call
-      // const response = await fetch(`/api/posts/${postToDelete.id}`, {
-      //   method: 'DELETE',
-      //   headers: {
-      //     'Authorization': `Bearer ${localStorage.getItem('token')}`
-      //   }
-      // });
-      // 
-      // if (!response.ok) {
-      //   throw new Error('Failed to delete post');
-      // }
+      // Replace with actual API call
+      const response = await fetch(`/api/posts/${postToDelete.id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to delete post');
+      }
       
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -316,11 +316,11 @@ export default function PostEditDelete() {
 
   /**
    * Handle post interactions (like, comment, share)
-   * TODO: Implement actual functionality
+   *Implement actual functionality
    */
   const handlePostInteraction = (postId, type) => {
     console.log(`${type} action for post:`, postId);
-    // TODO: Implement API calls for post interactions
+    // Implement API calls for post interactions
   };
 
   return (

@@ -35,7 +35,7 @@ export default function Profile() {
       password: ""
     });
     // Navigate back to PostEditDelete page
-    navigate('/post'); // Adjust this path to match your routing setup
+    navigate('/post');
   };
 
   return (

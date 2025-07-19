@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function Login() {
-  // ADDED: State management for form data and validation
+  //  State management for form data and validation
   const [formData, setFormData] = useState({
     username: "",
     password: ""
@@ -15,7 +15,7 @@ export default function Login() {
   const [generalError, setGeneralError] = useState("");
   const navigate = useNavigate();
 
-  // ADDED: Handle input changes
+  //  Handle input changes
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
       ...prev,
@@ -36,7 +36,7 @@ export default function Login() {
     }
   };
 
-  // ADDED: Form validation
+  //Form validation
   const validateForm = () => {
     const newErrors = {};
     
@@ -56,7 +56,7 @@ export default function Login() {
     return Object.keys(newErrors).length === 0;
   };
 
-  // ADDED: Handle form submission
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -68,24 +68,24 @@ export default function Login() {
     setGeneralError("");
     
     try {
-      // TODO: Replace with actual API call when backend is ready
-      // const response = await fetch('/api/auth/login', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(formData)
-      // });
+     //replace with actual API call
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
       
-      // const data = await response.json();
+      const data = await response.json();
       
-      // if (!response.ok) {
-      //   throw new Error(data.message || 'Login failed');
-      // }
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
       
-      // Store auth token
-      // localStorage.setItem('token', data.token);
-      // localStorage.setItem('user', JSON.stringify(data.user));
+      //Store auth token
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
       
       // Simulate API call for now
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -110,16 +110,16 @@ export default function Login() {
           Login to <span className="font-irishgrover text-4xl">Rizz</span>
         </h1>
         
-        {/* ENHANCED: Form with proper submission handling */}
+        {/* Form with proper submission handling */}
         <form onSubmit={handleSubmit} className="w-full max-w-[340px] space-y-4">
-          {/* ADDED: General error display */}
+          {/* General error display */}
           {generalError && (
             <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3 text-red-400 text-sm">
               {generalError}
             </div>
           )}
           
-          {/* ENHANCED: Username field with validation */}
+          {/*  Username field with validation */}
           <div>
             <InputField 
               placeholder="Username" 
@@ -132,7 +132,7 @@ export default function Login() {
             )}
           </div>
           
-          {/* ENHANCED: Password field with validation */}
+          {/* : Password field with validation */}
           <div>
             <InputField 
               type="password" 
@@ -146,7 +146,7 @@ export default function Login() {
             )}
           </div>
           
-          {/* ENHANCED: Submit button with loading state */}
+          {/* Submit button with loading state */}
           <Button 
             type="submit"
             disabled={isLoading}

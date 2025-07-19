@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function Register() {
-  // ADDED: State management for form data and validation
+  //  State management for form data and validation
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -17,7 +17,7 @@ export default function Register() {
   const [generalError, setGeneralError] = useState("");
   const navigate = useNavigate();
 
-  // ADDED: Handle input changes
+  //Handle input changes
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
       ...prev,
@@ -38,13 +38,13 @@ export default function Register() {
     }
   };
 
-  // ADDED: Email validation helper
+  // Email validation helper
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
-  // ADDED: Form validation
+  //Form validation
   const validateForm = () => {
     const newErrors = {};
     
@@ -80,7 +80,7 @@ export default function Register() {
     return Object.keys(newErrors).length === 0;
   };
 
-  // ADDED: Handle form submission
+  //  Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -92,24 +92,24 @@ export default function Register() {
     setGeneralError("");
     
     try {
-      // TODO: Replace with actual API call when backend is ready
-      // const response = await fetch('/api/auth/register', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     username: formData.username,
-      //     email: formData.email,
-      //     password: formData.password
-      //   })
-      // });
+      //  Replace with actual API call
+      const response = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          email: formData.email,
+          password: formData.password
+        })
+      });
       
-      // const data = await response.json();
+      const data = await response.json();
       
-      // if (!response.ok) {
-      //   throw new Error(data.message || 'Registration failed');
-      // }
+      if (!response.ok) {
+        throw new Error(data.message || 'Registration failed');
+      }
       
       // Simulate API call for now
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -138,16 +138,16 @@ export default function Register() {
           Sign up to <span className="font-irishgrover text-4xl">Rizz</span>
         </h1>
         
-        {/* ENHANCED: Form with proper submission handling */}
+        {/* Form with proper submission handling */}
         <form onSubmit={handleSubmit} className="w-full max-w-[340px] space-y-4">
-          {/* ADDED: General error display */}
+          {/*  General error display */}
           {generalError && (
             <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3 text-red-400 text-sm">
               {generalError}
             </div>
           )}
           
-          {/* ENHANCED: Username field with validation */}
+          {/*  Username field with validation */}
           <div>
             <InputField 
               placeholder="Username" 
@@ -160,7 +160,7 @@ export default function Register() {
             )}
           </div>
           
-          {/* ENHANCED: Email field with validation */}
+          {/* Email field with validation */}
           <div>
             <InputField 
               type="email" 
@@ -174,7 +174,7 @@ export default function Register() {
             )}
           </div>
           
-          {/* ENHANCED: Password field with validation */}
+          {/* Password field with validation */}
           <div>
             <InputField 
               type="password" 
@@ -188,7 +188,7 @@ export default function Register() {
             )}
           </div>
           
-          {/* ADDED: Confirm password field */}
+          {/* Confirm password field */}
           <div>
             <InputField 
               type="password" 
@@ -202,7 +202,7 @@ export default function Register() {
             )}
           </div>
           
-          {/* ENHANCED: Submit button with loading state */}
+          {/*Submit button with loading state */}
           <Button 
             type="submit"
             disabled={isLoading}
