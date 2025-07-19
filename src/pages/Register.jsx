@@ -21,7 +21,7 @@ export default function Register() {
           <p className="text-xs mt-8 text-gray-400 text-center font-light">
             Already have an account?{" "}
             <Link
-              to="/"
+              to="/login"
               className=" text-blue-400 hover:text-blue-300 transition"
             >
               Login
