@@ -2,11 +2,24 @@ import Sidebar from "../components/Sidebar";
 import Button from "../components/Button";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Add this import
 import { ImageIcon, MoreHorizontal } from "lucide-react";
 
 export default function CreatePost() {
   const [caption, setCaption] = useState("");
   const [fileName, setFileName] = useState("");
+  const navigate = useNavigate(); // Add this hook
+
+  // Handle post submission
+  const handlePost = () => {
+    if (caption.trim()) {
+      // Add API call to save the post
+      console.log("Posting:", { caption, fileName });
+      
+      // Navigate to home page after posting
+      navigate("/");
+    }
+  };
 
   return (
     <div className="flex min-h-screen bg-black text-white">
@@ -69,7 +82,11 @@ export default function CreatePost() {
                 )}
                 
                 {/* Post Button */}
-                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                <Button 
+                  className="w-full bg-blue-600 hover:bg-blue-700"
+                  onClick={handlePost}
+                  disabled={!caption.trim()} // Disable if no text entered
+                >
                   Post
                 </Button>
               </div>
