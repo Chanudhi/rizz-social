@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Sidebar from "../components/Sidebar";
 import Button from "../components/Button";
 import Navbar from "../components/Navbar";
-import { Heart, MessageCircle, Send, MoreHorizontal, Edit, Trash2, ImageIcon, X } from "lucide-react";
+import { Heart, MessageCircle, Send, MoreHorizontal, ImageIcon, X } from "lucide-react";
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
 
 export default function PostEditDelete() {
@@ -519,14 +519,14 @@ export default function PostEditDelete() {
                             onClick={() => handleStartEdit(post)}
                             className="bg-blue-600 hover:bg-blue-700 flex-1 flex items-center justify-center gap-2"
                           >
-                            <Edit size={16} />
+                           
                             Edit
                           </Button>
                           <Button 
                             onClick={() => handleDeleteClick(post)}
                             className="bg-red-600 hover:bg-red-700 flex-1 flex items-center justify-center gap-2"
                           >
-                            <Trash2 size={16} />
+                            
                             Delete
                           </Button>
                         </>
