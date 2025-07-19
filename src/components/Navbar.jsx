@@ -1,5 +1,6 @@
 import { Bell, User } from "lucide-react";
 import SearchBar from "./SearchBar";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar({ showSearch = true, title = null }) {
   return (
@@ -19,7 +20,7 @@ export default function Navbar({ showSearch = true, title = null }) {
         {showSearch && <SearchBar />}
         <Bell className="text-gray-200 cursor-pointer" size={26} />
         <div className="w-9 h-9 rounded-full bg-neutral-700 flex items-center justify-center cursor-pointer">
-          <User className="text-gray-200" size={22} />
+          <NavLink to="/post" ><User className="text-gray-200" size={22} /></NavLink>
         </div>
       </div>
     </nav>
